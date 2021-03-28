@@ -1,4 +1,4 @@
-import openpyxl, os
+import openpyxl, os, shutil
 class NewProduct:
     """ class for product input """
     def __init__(self):
@@ -54,7 +54,8 @@ class NewProduct:
             
     def weekly_release_generator(self):
         """ generates weekly release list for product set up """
-        weeklydoc = open(f'{self.date}_Wills_Release.txt', 'a')
+        filename = f"{self.date}_Wills_Release.txt"
+        weeklydoc = open(filename, 'a')
         weeklydoc.write(f'{self.date} Releases\n\n')
         for labelpage in self.releaseWB.sheetnames:
             labelsheet = self.releaseWB[labelpage]
@@ -64,6 +65,7 @@ class NewProduct:
                         release = labelsheet.cell(row=i+1, column=2).value
                         weeklydoc.write(f"{release}[{labelsheet.title}]\n")
         weeklydoc.close()
+        shutil.move(f"C:\\Users\\willp\\PythonScripts\\Schedule\\{filename}", 'D:\\Loopmasters\\Releases')
 
 
     def close_workbook(self):
