@@ -1,0 +1,15 @@
+ Volume in drive C has no label.
+ Volume Serial Number is 64D0-E07E
+
+ *.xlsx
+
+28/03/2021  21:33    <DIR>          .
+28/03/2021  21:33    <DIR>          ..
+28/03/2021  21:34                 0 .gitignore
+28/03/2021  19:34               528 NewPackInput.py
+28/03/2021  20:36             4,381 products.py
+28/03/2021  20:24               300 weekly_releases.py
+28/03/2021  20:37            50,034 WillsReleases.xlsx
+28/03/2021  20:36    <DIR>          __pycache__
+               5 File(s)         55,243 bytes
+               3 Dir(s)  735,017,218,048 bytes free
