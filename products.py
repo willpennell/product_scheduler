@@ -1,4 +1,5 @@
 import openpyxl, os, shutil
+from directory import FileLocations
 class NewProduct:
     """ class for product input """
     def __init__(self):
@@ -12,7 +13,8 @@ class NewProduct:
             'pelham and junior': 'Pelham & Junior', 'production master': 'Production Master', 'producer loops': 'Producer Loops', 'resonance sound': 'Resonance Sound', 'riemann': 'Riemann',
             'samplestar': 'Samplestar', 'soundsmiths': 'Soundsmiths', 'shamanstems': 'ShamanStems', 'skifonix': 'Skifonix', 'toolroom': 'Toolroom', 'triad': 'Triad', 'zenhiser': 'Zenhiser' 
             }
-        os.chdir('C:\\Users\\willp\\PythonScripts\\Schedule')
+        self.locations = FileLocations()
+        os.chdir(self.locations.project_folder)
     
     def data_input(self):
         """ Input for new product """
@@ -65,7 +67,8 @@ class NewProduct:
                         release = labelsheet.cell(row=i+1, column=2).value
                         weeklydoc.write(f"{release}[{labelsheet.title}]\n")
         weeklydoc.close()
-        shutil.move(f"C:\\Users\\willp\\PythonScripts\\Schedule\\{filename}", 'D:\\Loopmasters\\Releases')
+        shutil.move(f"{self.locations.project_folder}\\{filename}", self.locations.weekly_list_location)
+      
 
 
     def close_workbook(self):
